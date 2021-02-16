@@ -20,7 +20,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { Icon } from "../../types/components";
 
 @Component
 export default class Footer extends Vue {}
