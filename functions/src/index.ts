@@ -75,14 +75,12 @@ const deleteSchedule = async () => {
 /*
 scheduleは3つまでしか無料じゃないから...しぶしぶ1つに全盛り...
 */
-exports.updatesFunction = functions.region('asia-northeast1').pubsub.schedule('every 1 hours')
+exports.updatesFunction = functions.region('asia-northeast1').pubsub.schedule('every 4 hours')
   .timeZone('Asia/Tokyo')
   .onRun(async () => {
     const liversInfo = await admin.firestore().collection('livers').get();
     await Promise.all(liversInfo.docs.map(async (doc) => await updateLiverInfo(doc))).catch(e => e);
     await Promise.all(liversInfo.docs.map(async (doc) => await checkLiverSchedule(doc))).catch(e => e);
-    //liversInfo.docs.map(async(doc) => await updateLiverInfo(doc))
-    //liversInfo.docs.map(async(doc) => await checkLiverSchedule(doc))
     await deleteSchedule();
     return null;
   });

@@ -7,7 +7,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'VspoSchedule',
-    component: () => import('@/views/VspoSchedule.vue')
+    component: () => import('@/views/VspoSchedule.vue'),
   }
 ]
 
