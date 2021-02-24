@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
 import 'firebase/functions';
+import 'firebase/analytics';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDbHjaa7ulx-8aSfJt74dclKhQ6cl9B5Jg",
@@ -12,7 +13,7 @@ const firebaseConfig = {
     measurementId: "G-1JNYGX3ZXN"
 };
 firebase.initializeApp(firebaseConfig)
-
+firebase.analytics();
 export const serverTimeStamp = firebase.firestore.FieldValue.serverTimestamp()
 
 export default firebase
