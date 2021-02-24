@@ -46,7 +46,6 @@ export default class ScheduleOfDay extends Super {
 
   async created() {
     this.schedules = await this.getScheduleFromDate(this.day);
-    console.log(this.schedules);
   }
 }
 </script>
