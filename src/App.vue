@@ -30,6 +30,7 @@
 <script lang="ts">
 import { liverCollectionMapper } from "./store/modules/LiverCollectionModule";
 import { ScheduleCollectionMapper } from "./store/modules/ScheduleCollectionModule";
+import { MetaInfo } from "vue-meta";
 import { Component, Vue } from "vue-property-decorator";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
@@ -48,9 +49,36 @@ const Super = Vue.extend({
   },
 })
 export default class App extends Super {
+  title: string = 'ぶいすぽ☆スケジュール';
+  url: string = 'https://vspo-schedule.web.app/';
+  ogimage: string = '@/assets/ogimage.jpg';
+  description: string = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
+
+  metaInfo(): MetaInfo {
+    return {
+      title: this.title,
+      htmlAttrs: {
+        lang: 'jp'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { vmid: 'description', property: 'description', content: this.description},
+        { vmid: 'og:type', property: 'og:type', content: 'website'},
+        { vmid: 'og:url', property: 'og:url', content: this.url},
+        { vmid: 'og:title', property: 'og:title', content: this.title},
+        { vmid: 'og:image', property: 'og:image', content: this.ogimage},
+        { vmid: 'og:description', property: 'og:description', content: this.description},
+        { vmid: 'twitter:image:src', name: 'twitter:image:src', content: this.ogimage},
+        { vmid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
+        { vmid: 'twitter:site', name: 'twitter:site', content: '@takapdayon'},
+        { vmid: 'twitter:creator', name: 'twitter:creator', content: '@takapdayon'},
+        { vmid: 'twitter:title', name: 'twitter:title', content: this.title},
+        { vmid: 'twitter:description', name: 'twitter:description', content: this.description}
+      ]
+    };
+  }
+
   async created() {
-    // 0時ジャストだと、わんちゃん日付にずれが起こる可能性が微レ存
-    // 3日(5日)とってきて保持する?
     this.loadLiver();
     this.loadSchedule();
   }
