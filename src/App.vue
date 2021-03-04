@@ -49,10 +49,10 @@ const Super = Vue.extend({
   },
 })
 export default class App extends Super {
-  title: string = 'ぶいすぽ☆スケジュール';
-  url: string = 'https://vspo-schedule.web.app/';
-  ogimage: string = '@/assets/ogimage.jpg';
-  description: string = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
+  title = 'ぶいすぽ☆スケジュール';
+  url = 'https://vspo-schedule.web.app/';
+  ogimage = '@/assets/ogimage.jpg';
+  description = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
 
   metaInfo(): MetaInfo {
     return {
