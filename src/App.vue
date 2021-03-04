@@ -62,7 +62,7 @@ const Super = Vue.extend({
         { vmid: 'og:title', property: 'og:title', content: this.title},
         { vmid: 'og:image', property: 'og:image', content: this.ogimage},
         { vmid: 'og:description', property: 'og:description', content: this.description},
-        { vmid: 'twitter:image:src', name: 'twitter:image:src', content: this.ogimage},
+        { vmid: 'twitter:image', name: 'twitter:image', content: this.ogimage},
         { vmid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
         { vmid: 'twitter:site', name: 'twitter:site', content: '@takapdayon'},
         { vmid: 'twitter:creator', name: 'twitter:creator', content: '@takapdayon'},
