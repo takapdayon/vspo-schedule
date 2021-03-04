@@ -34,6 +34,7 @@ import { MetaInfo } from "vue-meta";
 import { Component, Vue } from "vue-property-decorator";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import OgImage from "./assets/ogimage.png";
 
 const Super = Vue.extend({
   methods: {
@@ -47,14 +48,7 @@ const Super = Vue.extend({
     Header,
     Footer,
   },
-})
-export default class App extends Super {
-  title = 'ぶいすぽ☆スケジュール';
-  url = 'https://vspo-schedule.web.app/';
-  ogimage = '@/assets/ogimage.jpg';
-  description = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
-
-  metaInfo(): MetaInfo {
+  metaInfo(this: App): MetaInfo {
     return {
       title: this.title,
       htmlAttrs: {
@@ -76,7 +70,13 @@ export default class App extends Super {
         { vmid: 'twitter:description', name: 'twitter:description', content: this.description}
       ]
     };
-  }
+  },
+})
+export default class App extends Super {
+  title = 'ぶいすぽ☆スケジュール';
+  url = 'https://vspo-schedule.web.app';
+  ogimage = `${this.url}${OgImage}`;
+  description = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
 
   async created() {
     this.loadLiver();
