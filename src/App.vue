@@ -34,7 +34,7 @@ import { MetaInfo } from "vue-meta";
 import { Component, Vue } from "vue-property-decorator";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import OgImage from "./assets/ogimage.png";
+import OgImage from "@/assets/ogimage.png";
 
 const Super = Vue.extend({
   methods: {
