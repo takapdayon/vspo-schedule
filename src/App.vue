@@ -34,7 +34,7 @@ import { MetaInfo } from "vue-meta";
 import { Component, Vue } from "vue-property-decorator";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import OgImage from "@/assets/ogimage.png";
+import OgImage from "../public/ogimage.png";
 
 const Super = Vue.extend({
   methods: {
@@ -73,7 +73,7 @@ const Super = Vue.extend({
   },
 })
 export default class App extends Super {
-  title = 'ぶいすぽ☆スケジュール';
+  title = 'ぶいすぽ^スケジュール';
   url = 'https://vspo-schedule.web.app';
   ogimage = `${this.url}${OgImage}`;
   description = 'ぶいすぽ(vspo)の非公式スケジュールサイトです。30分ごとに更新し、ライブ配信中はアイコンが変化します';
