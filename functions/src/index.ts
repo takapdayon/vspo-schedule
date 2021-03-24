@@ -27,7 +27,7 @@ const updateLiverInfo = async (doc: any) => {
 
 const updateSchedule = async (item: any) => {
   const scheduleRef = admin.firestore().collection('schedules').doc(item.id)
-  if (item.liveStreamingDetails.scheduledStartTime) {
+  if (item.liveStreamingDetails) {
     await scheduleRef.set({
       channelId: item.snippet.channelId,
       description: item.snippet.description,
@@ -37,10 +37,10 @@ const updateSchedule = async (item: any) => {
       thumbnails: item.snippet.thumbnails.standard.url,
       title: item.snippet.title,
     })
-      .catch(e => {
-        console.log(e)
-        console.log(item)
-      })
+    .catch(e => {
+      console.log(e)
+      console.log(item)
+    })
   }
 }
 
