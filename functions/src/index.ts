@@ -21,7 +21,7 @@ const updateLiverInfo = async (doc: any) => {
   const updateRef = admin.firestore().collection('livers').doc(doc.id)
   await updateRef.update({
     channelName: youtubeliverInfo.data.items[0].snippet.title,
-    channelIcon: youtubeliverInfo.data.items[0].snippet.thumbnails.medium.url
+    channelIcon: youtubeliverInfo.data.items[0].snippet.thumbnails?.medium?.url
   })
 }
 
@@ -34,7 +34,7 @@ const updateSchedule = async (item: any) => {
       id: item.id,
       liveBroadcastContent: item.snippet.liveBroadcastContent,
       scheduledStartTime: admin.firestore.Timestamp.fromDate(new Date(item.liveStreamingDetails.scheduledStartTime)),
-      thumbnails: item.snippet.thumbnails.standard.url,
+      thumbnails: item.snippet?.thumbnails?.standard?.url,
       title: item.snippet.title,
     })
     .catch(e => {
